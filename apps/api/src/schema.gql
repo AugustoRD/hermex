@@ -1,0 +1,58 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateVehicleInput {
+  available: Boolean = true
+  brand: String!
+  dailyRate: Float!
+  licensePlate: String!
+  model: String!
+  year: Int!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type HealthStatus {
+  message: String!
+  service: String!
+  status: String!
+}
+
+type Mutation {
+  createVehicle(createVehicleInput: CreateVehicleInput!): Vehicle!
+  removeVehicle(id: ID!): Vehicle!
+  updateVehicle(updateVehicleInput: UpdateVehicleInput!): Vehicle!
+}
+
+type Query {
+  """Verifica o status de saúde da API GraphQL da Hermex"""
+  health: HealthStatus!
+  vehicle(id: ID!): Vehicle
+  vehicles: [Vehicle!]!
+}
+
+input UpdateVehicleInput {
+  available: Boolean = true
+  brand: String
+  dailyRate: Float
+  id: ID!
+  licensePlate: String
+  model: String
+  year: Int
+}
+
+type Vehicle {
+  available: Boolean!
+  brand: String!
+  createdAt: DateTime!
+  dailyRate: Float!
+  id: ID!
+  licensePlate: String!
+  model: String!
+  updatedAt: DateTime!
+  year: Int!
+}

@@ -1,0 +1,46 @@
+{
+  "name": "hermex",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.6.5",
+  "scripts": {
+    "dev": "pnpm --parallel -r run dev",
+    "web:dev": "pnpm --filter @hermex/web dev",
+    "api:dev": "pnpm --filter @hermex/api start:dev",
+    "dev:web": "pnpm --filter @hermex/web dev",
+    "dev:api": "pnpm --filter @hermex/api start:dev",
+    "build": "pnpm -r run build",
+    "web:build": "pnpm --filter @hermex/web build",
+    "api:build": "pnpm --filter @hermex/api build",
+    "build:web": "pnpm --filter @hermex/web build",
+    "build:api": "pnpm --filter @hermex/api build",
+    "lint": "pnpm -r run lint",
+    "lint:web": "pnpm --filter @hermex/web lint",
+    "lint:api": "pnpm --filter @hermex/api lint",
+    "test:api": "pnpm --filter @hermex/api test",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "db:generate": "pnpm --filter @hermex/api prisma:generate",
+    "db:migrate": "pnpm --filter @hermex/api prisma:migrate",
+    "db:studio": "pnpm --filter @hermex/api prisma:studio",
+    "prisma:generate": "pnpm --filter @hermex/api prisma:generate",
+    "prisma:migrate": "pnpm --filter @hermex/api prisma:migrate",
+    "prisma:studio": "pnpm --filter @hermex/api prisma:studio"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@apollo/protobufjs",
+      "@parcel/watcher",
+      "@prisma/client",
+      "@prisma/engines",
+      "prisma",
+      "unrs-resolver"
+    ],
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "@nestjs/common": "12",
+        "@nestjs/core": "12"
+      }
+    }
+  }
+}
